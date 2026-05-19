@@ -1,0 +1,79 @@
+#include <iostream>
+using namespace std;
+
+class Product
+{
+    int id;
+    string name;
+    double price;
+
+public:
+
+    // Default Constructor
+    Product()
+    {
+        id = 0;
+        name = "Not Available";
+        price = 0;
+
+        cout << "Default Constructor Called" << endl;
+    }
+
+    // Parameterized Constructor
+    Product(int i, string n, double p)
+    {
+        id = i;
+        name = n;
+        price = p;
+
+        cout << "Parameterized Constructor Called" << endl;
+    }
+
+    // Copy Constructor
+    Product(Product &p)
+    {
+        id = p.id;
+        name = p.name;
+        price = p.price;
+
+        cout << "Copy Constructor Called" << endl;
+    }
+
+    // Display Function
+    void display()
+    {
+        cout << "ID: " << id << endl;
+        cout << "Name: " << name << endl;
+        cout << "Price: " << price << endl;
+        cout << endl;
+    }
+
+    // Destructor
+    ~Product()
+    {
+        cout << "Destructor Called" << endl;
+    }
+};
+
+int main()
+{
+    // Default Constructor
+    Product p1;
+
+    // Parameterized Constructor
+    Product p2(101, "Laptop", 50000);
+
+    // Copy Constructor
+    Product p3(p2);
+
+    cout << "\nProduct 1 Details:" << endl;
+    p1.display();
+
+    cout << "Product 2 Details:" << endl;
+    p2.display();
+
+    cout << "Product 3 Details:" << endl;
+    p3.display();
+
+    return 0;
+}
